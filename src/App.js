@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
+import Users from "./user/pages/Users";
+import NewPlaces from "./places/pages/NewPlaces";
+import MainNavigation from "./shared/components/Navigation/MainNavigation";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <MainNavigation />
+      <main>
+        <Switch>
+          <Route exact path="/">
+            {" "}
+            {/* Keyword exact looks for exact address specified on the path */}
+            <Users />
+          </Route>
+          <Route exact path="/places/new">
+            <NewPlaces />
+          </Route>
+
+          {/* if users search does not match any address then redirect the user to home page, "/" */}
+          <Redirect to="/" />
+        </Switch>
+      </main>
+    </Router>
   );
 }
 
