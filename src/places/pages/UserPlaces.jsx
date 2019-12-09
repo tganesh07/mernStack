@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import PlaceList from '../components/PlaceList';
 
 const DUMMY_DATA = [
@@ -12,7 +13,7 @@ const DUMMY_DATA = [
             lat: 0.0,
             lng: 1.0
         },
-        creatorId: 'U1'
+        creatorId: 'u1'
     },
     {
         id: 'p2',
@@ -24,11 +25,15 @@ const DUMMY_DATA = [
             lat: 0.0,
             lng: 1.0
         },
-        creatorId: 'U2'
+        creatorId: 'u2'
     }
 ]
 const UserPlaces = () => {
-    return <PlaceList  items={DUMMY_DATA}/>;
+
+    const userId        = useParams().userId; // Retrieves the url parameters like userId, etc.
+    const usersPlaces   = DUMMY_DATA.filter(place => place.creatorId === userId); // filtering the specific user using login info
+
+    return <PlaceList  items={usersPlaces}/>;
 };
 
 export default UserPlaces;
