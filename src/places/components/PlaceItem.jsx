@@ -22,10 +22,11 @@ const PlaceItem = props => {
         footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
       >
         <div className="map-container">
+          {/* <Map center={props.coordinates} zoom={16} /> */}
           <h2>The Map</h2>
         </div>
       </Modal>
-      
+
       <li className="place-item">
         <Card className="place-item__content">
           <div className="place-item__image">
