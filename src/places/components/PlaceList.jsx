@@ -18,7 +18,7 @@ const PlaceList = props => {
   }
 
   return (
-    <u1 className="place-list">
+    <ul className="place-list">
       {props.items.map(place => (
         <PlaceItem 
             key={place.id} 
@@ -31,7 +31,7 @@ const PlaceList = props => {
             coordinates={place.location} 
             />
       ))}
-    </u1>
+    </ul>
   );
 };
 
