@@ -6,6 +6,7 @@ import Users from "./user/pages/Users";
 import NewPlaces from "./places/pages/NewPlaces";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import UserPlaces from "./places/pages/UserPlaces";
+import UpdatePlace from './places/pages/UpdatePlace';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route exact path="/places/new">
             <NewPlaces />
+          </Route>
+          <Route path="/places/:placeId">
+            <UpdatePlace />
           </Route>
 
           {/* if users search does not match any address then redirect the user to home page, "/" */}
