@@ -75,17 +75,6 @@ const UpdatePlace = () => {
         setIsLoading(false);
       }, [setFormData, identifiedPlace]);
 
-    // const [formState, inputHandler] = useForm({
-    //     title : {
-    //     value : identifiedPlace.title,
-    //     isValid : true
-    //   },
-    //   description : {
-    //     value : identifiedPlace.description,
-    //     isValid : true
-    //   }},
-    // false);
-
     const onUpdateHandler = (event) => {
         event.preventDefault();
         console.log(formState.inputs);
