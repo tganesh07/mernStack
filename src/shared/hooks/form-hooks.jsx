@@ -36,5 +36,13 @@ export const useForm = (initialInputs, initialFormValidity) => {
         dispatch({ type: 'INPUT_CHANGE', inputId : id, value : value, isValid : isValid})
       }, []);
 
-      return [formState, inputHandler];
+      const setFormData = useCallback((inputData, formValidity) => {
+        dispatch({
+          type: 'SET_DATA',
+          inputs: inputData,
+          formIsValid: formValidity
+        });
+      }, []);
+
+      return [formState, inputHandler, setFormData];
 };
